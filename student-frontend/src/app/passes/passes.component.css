@@ -1,5 +1,6 @@
-mat-chip {
-  length: 250px;
+.mat-chip {
   pointer-events: none;
   border-radius: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
