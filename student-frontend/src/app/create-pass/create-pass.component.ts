@@ -6,6 +6,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   templateUrl: './create-pass.component.html',
   styleUrls: ['./create-pass.component.css']
 })
+
+// TODO: allow to complete select cause
+// TODO: actually create the pass
+// TODO: get rid of floating create
+
 export class CreatePassComponent implements OnInit {
 
   firstFormGroup: FormGroup;

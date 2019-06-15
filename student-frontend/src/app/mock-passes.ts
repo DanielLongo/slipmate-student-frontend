@@ -12,7 +12,5 @@ export const PASSES: Pass[] = [
   { id: 19, teacherName: 'Magma', timestamp: 3242423475, status: 1 },
   { id: 20, teacherName: 'Tornado', timestamp: 3242423433, status: 2 }
 ];
-
-// export const PASSES: Pass[] = [
-//   { id: 11, teacherName: 'Dr Nice', timestamp: 3242423423 }
-// ];
+// TODO: add purpose
+// TODO: make asynchronous
