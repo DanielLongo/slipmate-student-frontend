@@ -1,0 +1,16 @@
+<h3>Create a Pass</h3>
+<ul>
+  <app-create-pass></app-create-pass>
+</ul>
+<h3>Your Passes</h3>
+<ul *ngFor="let pass of passes">
+  <mat-card>
+    <mat-card-title>Tutorial with {{pass.teacherName}} </mat-card-title>
+    <mat-card-content>
+      <p>ID: {{pass.id}} <mat-chip selected [color]="getColor(pass.status)">{{getChip(pass.status)}}</mat-chip></p>
+    {{getStringTimestamp(pass.timestamp)}}
+    <button mat-stroked-button (click)="deletePass(pass)">Delete</button>
+    </mat-card-content>
+  </mat-card>
+</ul>
+

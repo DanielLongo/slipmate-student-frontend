@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@font-face {
+  font-family: psans;
+  src: url(assets/fonts/ProductSans-Regular.ttf) format("truetype");
+}
+
+mat-card {
+  margin-right: 5%;
+  font-family: psans;
+}
+
+h1, h2, h3 {
+  font-family: psans;
+}

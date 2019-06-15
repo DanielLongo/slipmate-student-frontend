@@ -1,0 +1,111 @@
+<mat-card>
+  <mat-horizontal-stepper *ngIf="isDesktopResolution" [linear]="true" #stepper>
+
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Select Teacher</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Teacher's Name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-stroked-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Choose a date</ng-template>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" [matDatepickerFilter]="myFilter" placeholder="Date" formControlName="secondCtrl" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-stroked-button matStepperPrevious style="margin-right: 1em">Back</button>
+          <button mat-stroked-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Indicate Cause</ng-template>
+        <mat-form-field>
+          <mat-label>Select Cause</mat-label>
+          <mat-select required>
+            <mat-option value="option1">Makeup Assessment</mat-option>
+            <mat-option value="option2">Learn Concepts</mat-option>
+            <mat-option value="option3">Review for Assessment</mat-option>
+            <mat-option value="option4">other</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+      <div>
+        <button mat-stroked-button matStepperPrevious style="margin-right: 1em">Back</button>
+        <button mat-stroked-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Complete</ng-template>
+      Your request is complete. Request is pending.
+      <div>
+        <button mat-stroked-button (click)="stepper.reset()">Create Another Pass</button>
+      </div>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+<!--For Mobile Version-->
+  <mat-vertical-stepper *ngIf="isMobileResolution" [linear]="true" #stepper>
+
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Select Teacher</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Teacher's Name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-stroked-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Choose a date</ng-template>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" [matDatepickerFilter]="myFilter" placeholder="Date" formControlName="secondCtrl" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-stroked-button matStepperPrevious style="margin-right: 1em">Back</button>
+          <button mat-stroked-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Indicate Cause</ng-template>
+        <mat-form-field>
+          <mat-label>Select Cause</mat-label>
+          <mat-select required>
+            <mat-option value="option1">Makeup Assessment</mat-option>
+            <mat-option value="option2">Learn Concepts</mat-option>
+            <mat-option value="option3">Review for Assessment</mat-option>
+            <mat-option value="option4">other</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+      <div>
+        <button mat-stroked-button matStepperPrevious style="margin-right: 1em">Back</button>
+        <button mat-stroked-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Complete</ng-template>
+      Your request is complete. Request is pending.
+      <div>
+        <button mat-stroked-button (click)="stepper.reset()">Create Another Pass</button>
+      </div>
+    </mat-step>
+
+  </mat-vertical-stepper>
+</mat-card>
