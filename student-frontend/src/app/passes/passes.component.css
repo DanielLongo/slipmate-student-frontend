@@ -4,3 +4,12 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.cancel-pass {
+  color: red;
+}
+
+.chip-pending {
+  color: orange;
+  background-color: darkorange;
+}

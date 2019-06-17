@@ -7,9 +7,10 @@
   <mat-card>
     <mat-card-title>Tutorial with {{pass.teacherName}} </mat-card-title>
     <mat-card-content>
-      <p>ID: {{pass.id}} <mat-chip selected [color]="getColor(pass.status)">{{getChip(pass.status)}}</mat-chip></p>
-    {{getStringTimestamp(pass.timestamp)}}
-    <button mat-stroked-button (click)="deletePass(pass)">Delete</button>
+      <p><mat-chip selected [color]="getColor(pass.status)">{{getChip(pass.status)}}</mat-chip></p>
+      <p> {{getStringTimestamp(pass.date)}} Purpose: {{pass.purpose}}</p>
+      <button style="margin-right: 10px" mat-stroked-button>Edit</button>
+    <button class="cancel-pass" mat-stroked-button (click)="deletePass(pass)">Delete</button>
     </mat-card-content>
   </mat-card>
 </ul>
