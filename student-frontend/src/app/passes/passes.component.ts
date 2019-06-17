@@ -11,6 +11,20 @@ import {timestamp} from 'rxjs/operators';
 })
 export class PassesComponent implements OnInit {
   passes = PASSES;
+  monthsOfYear = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec'
+  ]
   // pass: Pass = {
   //   id : 1,
   //   teacherName: 'Mr. Wilks',
@@ -48,7 +62,7 @@ export class PassesComponent implements OnInit {
 
     getStringTimestamp(date: string): string {
     const splitted = date.split(':');
-    return splitted[0] + '/' + splitted[1];
+    return this.monthsOfYear[Number(splitted[0])] + '/' + splitted[1];
   }
 
   getNumDays(date: string): number {

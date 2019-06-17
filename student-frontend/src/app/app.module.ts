@@ -10,7 +10,7 @@ import {
   MatDatepickerModule,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
-  MatNativeDateModule, MatOptionModule, MatSelectModule, MatStepperModule, MatToolbarModule, MatChipsModule
+  MatNativeDateModule, MatOptionModule, MatSelectModule, MatStepperModule, MatToolbarModule, MatChipsModule, MatAutocompleteModule
 } from '@angular/material';
 import { CreatePassComponent } from './create-pass/create-pass.component';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -19,7 +19,7 @@ import {ReactiveFormsModule} from '@angular/forms';
   declarations: [
     AppComponent,
     PassesComponent,
-    CreatePassComponent
+    CreatePassComponent,
   ],
   imports: [
     MatDatepickerModule,
@@ -36,7 +36,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatSelectModule,
     MatIconModule,
     MatToolbarModule,
-    MatChipsModule
+    MatChipsModule,
+    MatAutocompleteModule
   ],
   providers: [
     MatDatepickerModule

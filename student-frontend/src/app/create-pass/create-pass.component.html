@@ -1,12 +1,20 @@
 <mat-card>
-  <mat-horizontal-stepper *ngIf="isDesktopResolution" [linear]="true" #stepper>
+  <mat-horizontal-stepper *ngIf="isDesktopResolution" [linear]="false" #stepper>
 
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Select Teacher</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Teacher's Name" formControlName="firstCtrl" required>
-        </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Teacher Name" aria-label="Number" matInput required [formControl]="myControl" [matAutocomplete]="auto" (keyup.enter)="inputEntered">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+<!--        <mat-form-field>-->
+<!--          <input matInput placeholder="Teacher's Name" formControlName="firstCtrl" required>-->
+<!--        </mat-form-field>-->
         <div>
           <button mat-stroked-button matStepperNext>Next</button>
         </div>
@@ -54,13 +62,18 @@
 
   </mat-horizontal-stepper>
 <!--For Mobile Version-->
-  <mat-vertical-stepper *ngIf="isMobileResolution" [linear]="true" #stepper>
+  <mat-vertical-stepper *ngIf="isMobileResolution" [linear]="false" #stepper>
 
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Select Teacher</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Teacher's Name" formControlName="firstCtrl" required>
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Teacher Name" aria-label="Number" matInput required [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
         <div>
           <button mat-stroked-button matStepperNext>Next</button>
