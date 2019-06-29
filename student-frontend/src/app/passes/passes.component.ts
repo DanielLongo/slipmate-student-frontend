@@ -7,7 +7,7 @@ import {timestamp} from 'rxjs/operators';
 @Component({
   selector: 'app-passes',
   templateUrl: './passes.component.html',
-  styleUrls: ['./passes.component.css']
+  styleUrls: ['./passes.component.scss']
 })
 export class PassesComponent implements OnInit {
   passes = PASSES;

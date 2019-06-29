@@ -7,7 +7,7 @@ import {Pass} from '../pass';
 @Component({
   selector: 'app-create-pass',
   templateUrl: './create-pass.component.html',
-  styleUrls: ['./create-pass.component.css']
+  styleUrls: ['./create-pass.component.scss']
 })
 
 // TODO: allow to complete select cause
