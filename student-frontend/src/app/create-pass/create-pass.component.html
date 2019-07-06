@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-horizontal-stepper *ngIf="isDesktopResolution" [linear]="false" #stepper>
+  <mat-horizontal-stepper class="alternate-theme" *ngIf="isDesktopResolution" [linear]="false" #stepper>
 
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
@@ -62,7 +62,7 @@
 
   </mat-horizontal-stepper>
 <!--For Mobile Version-->
-  <mat-vertical-stepper *ngIf="isMobileResolution" [linear]="false" #stepper>
+  <mat-vertical-stepper class="alternate-theme" *ngIf="isMobileResolution" [linear]="false" #stepper>
 
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">

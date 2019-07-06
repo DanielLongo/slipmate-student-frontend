@@ -13,7 +13,14 @@ $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 
 // Include the default theme styles.
 @include angular-material-theme($candy-app-theme);
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-green, 300);
+  $alternate-accent:  mat-palette($mat-yellow, 300);
+  $alternate-warm: mat-palette($mat-red, 300);
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent, $alternate-warm);
 
+  @include angular-material-theme($alternate-theme);
+}
 
 // Define an alternate dark theme.
 $dark-primary: mat-palette($mat-blue-grey);
@@ -27,3 +34,10 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 .unicorn-dark-theme {
   @include angular-material-theme($dark-theme);
 }
+
+//$my-theme-primary: mat-palette($mat-green);
+//$my-theme-accent: mat-palette($mat-yellow);
+//$my-theme-warn: mat-palette($mat-red);
+//$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+//@include angular-material-theme($my-theme);
+
