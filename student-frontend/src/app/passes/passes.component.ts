@@ -67,7 +67,6 @@ export class PassesComponent implements OnInit {
 
   getNumDays(date: string): number {
     // only estimates days per month
-    console.log('getNumDays called')
     const splitted = date.split(':');
     return (31 * Number(splitted[0])) + (Number(splitted[1]));
   }
@@ -76,7 +75,12 @@ export class PassesComponent implements OnInit {
   ngOnInit() {
     // sort passes by date
     // TODO: doesn't call getNumDays successfully
-    this.passes = this.passes.sort(function(obj1, obj2) { return this.getNumDays(obj1.date) - this.getNumDays(obj2.date); });
+    this.passes.sort((obj1, obj2): number => {
+      if (this.getNumDays(obj1.date) < this.getNumDays(obj2.date)) { return 1; }
+      if (this.getNumDays(obj1.date) > this.getNumDays(obj2.date)) { return -1; }
+      return 0;
+    });
+    // this.passes = this.passes.sort(function(obj1, obj2) { return this.getNumDays(obj1.date) - this.getNumDays(obj2.date); });
   }
   myFilter = (d: Date): boolean => {
     const day = d.getDay();

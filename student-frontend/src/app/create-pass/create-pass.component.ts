@@ -24,9 +24,10 @@ export class CreatePassComponent implements OnInit {
 
   myControl = new FormControl();
   // tslint:disable-next-line:max-line-length
-  options: string[] = ['Ms. Pong', 'Mr. Kaddoura', 'Ms. Abel', 'Mr. Gelb', 'Mr. Kelly', 'Mr. Manzo', 'Ms. Baumgartel', 'Mr. Etlin', 'Ms. Saurter', 'Ms. Campbell'];
+  allTeachers: string[] = ['Pong', 'Kaddoura', 'Abel', 'Gelb', 'Kelly', 'Manzo', 'Baumgartel', 'Etlin', 'Saurter', 'Campbell'];
+  myTeachers: string[] = ['Fernander', 'Etlin', 'Eaton', 'Hanson'];
   filteredOptions: Observable<string[]>;
-
+  firstControl: FormControl;
   constructor(private _formBuilder: FormBuilder) {
     if (window.innerWidth < 900) {
       this.isMobileResolution = true;
@@ -43,7 +44,7 @@ export class CreatePassComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
-
+    this.firstControl = new FormControl()
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -73,4 +74,11 @@ export class CreatePassComponent implements OnInit {
     console.log(input);
 }
 
+  createPass() {
+    console.log('A');
+    console.log(this.firstFormGroup.value);
+    console.log(this.secondFormGroup.value);
+    console.log(this.thirdFormGroup.value);
+    console.log('B');
+  }
 }
