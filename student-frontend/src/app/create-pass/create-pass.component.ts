@@ -92,8 +92,21 @@ export class CreatePassComponent implements OnInit {
 }
 
   createPass() {
-    console.log(this.firstFormGroup.value);
-    console.log(this.secondFormGroup.value.split('/')[0]); // trying to get month
-    console.log(this.thirdFormGroup.value);
+    const teacherName = this.firstFormGroup.value;
+    const date = this.pad(document.forms[1].elements['date'].value.split('/')[0], 2) + ':' + this.pad(document.forms[1].elements['date'].value.split('/')[1], 2);
+    const cause = this.thirdFormGroup.value
+    // // console.log(document.forms[1].elements['date'].value)
+    // // tslint:disable-next-line:max-line-length
+    // console.log(this.pad(document.forms[1].elements['date'].value.split('/')[0], 2) + ':' + this.pad(document.forms[1].elements['date'].value.split('/')[1], 2)); // trying to get month
+    // console.log(this.thirdFormGroup.value);
+    console.log(teacherName)
+    console.log(date)
+    console.log(cause)
+  }
+
+  pad(num: number, size: number): string {
+    let s = num + '';
+    while (s.length < size) { s = '0' + s; }
+    return s;
   }
 }
