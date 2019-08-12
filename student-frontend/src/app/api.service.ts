@@ -6,7 +6,8 @@ import {LoginService} from './login.service';
 })
 export class ApiService {
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService) {
+  }
 
   private async request(func: string, data: any): Promise<any> {
     const req = new XMLHttpRequest;
@@ -16,7 +17,7 @@ export class ApiService {
       req.setRequestHeader(i.toString(), data[i]);
     }
     req.send();
-    console.log(req.response);
+    // console.log(req.response);
     return req.response;
   }
 
@@ -24,14 +25,16 @@ export class ApiService {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
       'August', 'September', 'October', 'November', 'December'];
     // tslint:disable-next-line:radix
-    return months[parseInt(m) -  1];
+    return months[parseInt(m) - 1];
   }
 
   private daySuffix(day: string): string {
     // tslint:disable-next-line:radix
     let d = parseInt(day) % 10;
     const suffixes = ['th', 'st', 'nd', 'rd'];
-    if (d > 3) { d = 0; }
+    if (d > 3) {
+      d = 0;
+    }
     return suffixes[d];
   }
 
@@ -40,8 +43,12 @@ export class ApiService {
     const ft = this.getTeacher(teacherFromID);
     let ttName = '';
     let ftName = '';
-    if (!tt.hasOwnProperty('name')) { ttName = 'null'; }
-    if (!ft.hasOwnProperty('name')) { ftName = 'null'; }
+    if (!tt.hasOwnProperty('name')) {
+      ttName = 'null';
+    }
+    if (!ft.hasOwnProperty('name')) {
+      ftName = 'null';
+    }
     return this.request('createPass', {
       isTeacherPass: isTeacherPassCh,
       toTeachID: teacherToID,
@@ -152,6 +159,26 @@ export class ApiService {
     return this.request('studentOptIn', {
       id: idD,
       currentStatus: current
+    })
+  }
+
+  getTeacherMadePasses(studentId: string) {
+    return this.request('getTeacherSlipsUnapprovedByStudent', {
+      studentId: studentId
+    })
+  }
+
+  studentAcceptPass(passId: string, studentID: string, fromTeacherID: string) {
+    return this.request('studentAcceptPass', {
+      ID: passId,
+      studentID: studentID,
+      fromTeacherID: fromTeacherID
+    })
+  }
+
+  getAllPasses(id: string) {
+    return this.request('getAllPassesStudentUnconditional', {
+        id : id
     })
   }
 }

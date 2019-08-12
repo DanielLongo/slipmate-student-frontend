@@ -8,13 +8,12 @@
 <h3>Your Passes</h3>
 <ul *ngFor="let pass of passes">
   <mat-card class="alternate-theme">
-    <mat-card-title>Tutorial with {{pass.teacherName}} </mat-card-title>
+    <mat-card-title>Tutorial with {{pass.toTeachName}} </mat-card-title>
     <mat-card-content>
-      <p><mat-chip  class="alternate-theme" selected [color]="getColor(pass.status)">{{getChip(pass.status)}}</mat-chip></p>
-      <p> {{getStringTimestamp(pass.date)}} Purpose: {{pass.purpose}}</p>
+      <p><mat-chip  class="alternate-theme" selected [color]="getColor(getStatus(pass.approvedPass, pass.denied))">{{getChip(getStatus(pass.approvedPass, pass.denied))}}</mat-chip></p>
+      <p> {{getStringTimestamp(pass.day)}} Purpose: {{pass.reason}}</p>
       <button style="margin-right: 10px" mat-stroked-button>View Pass</button>
     <button class="cancel-pass" mat-stroked-button (click)="deletePass(pass)">Delete</button>
     </mat-card-content>
   </mat-card>
 </ul>
-

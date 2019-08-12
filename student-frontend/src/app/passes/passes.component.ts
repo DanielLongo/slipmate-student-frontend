@@ -3,6 +3,8 @@ import {Pass} from '../pass';
 import { PASSES } from '../mock-passes';
 import {MatDialog} from '@angular/material/dialog';
 import {timestamp} from 'rxjs/operators';
+import {ApiService} from '../api.service';
+import {LoginService} from '../login.service';
 
 @Component({
   selector: 'app-passes',
@@ -10,7 +12,7 @@ import {timestamp} from 'rxjs/operators';
   styleUrls: ['./passes.component.scss']
 })
 export class PassesComponent implements OnInit {
-  passes = PASSES;
+  // passes = PASSES;
   monthsOfYear = [
     'Jan',
     'Feb',
@@ -25,14 +27,26 @@ export class PassesComponent implements OnInit {
     'Nov',
     'Dec'
   ]
+  private passes: any;
+  constructor(private api: ApiService, private loginservice: LoginService) {}
   // pass: Pass = {
   //   id : 1,
   //   teacherName: 'Mr. Wilks',
   //   timestamp: 1560549686
   // };
-  deletePass(pass: Pass): void {
+  deletePass(passId: string): void {
     if (confirm('Are you sure want to delete this pass?')) {
-      this.passes = this.passes.filter(obj => obj !== pass);
+      this.api.deleteSlip(passId).then(
+        this.api.getAllPasses(this.loginservice.user.email.split('@')[0]).then(
+          val => {
+            try {
+              this.passes = JSON.parse(val);
+            } catch (e) {
+              console.log("no passes available");
+            }
+          }
+        )
+      )
     }
   }
 
@@ -60,6 +74,16 @@ export class PassesComponent implements OnInit {
     }
   }
 
+  getStatus(approvedPass : boolean, denied : boolean): number {
+    if (approvedPass === true) {
+      return 2;
+    }
+    if (denied === true) {
+      return 0;
+    }
+    return 1;
+  }
+
     getStringTimestamp(date: string): string {
     const splitted = date.split(':');
     return this.monthsOfYear[Number(splitted[0])] + '/' + splitted[1];
@@ -70,16 +94,27 @@ export class PassesComponent implements OnInit {
     const splitted = date.split(':');
     return (31 * Number(splitted[0])) + (Number(splitted[1]));
   }
-  // constructor(public dialog: MatDialog) {}
-  constructor() {}
   ngOnInit() {
     // sort passes by date
     // TODO: doesn't call getNumDays successfully
-    this.passes.sort((obj1, obj2): number => {
-      if (this.getNumDays(obj1.date) < this.getNumDays(obj2.date)) { return 1; }
-      if (this.getNumDays(obj1.date) > this.getNumDays(obj2.date)) { return -1; }
-      return 0;
-    });
+    // this.api.getAllPasses(this.loginservice.user.email.split('@')[0]).then (
+    //   val => {
+    //     try {
+    //     this.passes = JSON.parse(val);
+    //     console.log("passes " + this.passes[0].day)
+    //   }
+    //   catch (e) {
+    //     console.log("no passes available");
+    //   }}
+    // )
+    this.api.getAllPasses(this.loginservice.user.email.split('@')[0]).then (
+      val => {this.passes = JSON.parse(val);} // console.log(this.passes)}
+    )
+    // this.passes.sort((obj1, obj2): number => {
+    //   if (this.getNumDays(obj1.day) < this.getNumDays(obj2.day)) { return 1; }
+    //   if (this.getNumDays(obj1.day) > this.getNumDays(obj2.day)) { return -1; }
+    //   return 0;
+    // });
     // this.passes = this.passes.sort(function(obj1, obj2) { return this.getNumDays(obj1.date) - this.getNumDays(obj2.date); });
   }
   myFilter = (d: Date): boolean => {
