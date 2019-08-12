@@ -8,12 +8,32 @@ import {
   MatButtonModule,
   MatCardModule,
   MatDatepickerModule,
-  MatFormFieldModule, MatIconModule,
+  MatFormFieldModule,
+  MatIconModule,
   MatInputModule,
-  MatNativeDateModule, MatOptionModule, MatSelectModule, MatStepperModule, MatToolbarModule, MatChipsModule, MatAutocompleteModule
+  MatNativeDateModule,
+  MatOptionModule,
+  MatSelectModule,
+  MatStepperModule,
+  MatToolbarModule,
+  MatChipsModule,
+  MatAutocompleteModule,
+  MatMenuModule, MatDividerModule
 } from '@angular/material';
 import { CreatePassComponent } from './create-pass/create-pass.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from "angularx-social-login";
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('133453041482-ebq2hge5thtmvklqe9i35s25q6b1gc85.apps.googleusercontent.com')
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -36,12 +56,20 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatSelectModule,
     MatIconModule,
     MatToolbarModule,
+    SocialLoginModule,
     MatChipsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatMenuModule,
+    MatDividerModule
   ],
   providers: [
-    MatDatepickerModule
-  ],
+    MatDatepickerModule,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

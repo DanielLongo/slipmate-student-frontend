@@ -29,6 +29,8 @@ export class CreatePassComponent implements OnInit {
   filteredOptions: Observable<string[]>;
   firstControl: FormControl;
   passInfo: FormGroup;
+  private options: any;
+  // tslint:disable-next-line:variable-name
   constructor(private _formBuilder: FormBuilder) {
     if (window.innerWidth < 900) {
       this.isMobileResolution = true;
@@ -72,7 +74,7 @@ export class CreatePassComponent implements OnInit {
   }
 
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    const filterValue = value.toLowerCase()
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }

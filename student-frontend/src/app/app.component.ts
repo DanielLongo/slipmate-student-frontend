@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder} from '@angular/forms';
+import {LoginService} from "./login.service";
+import {ApiService} from "./api.service";
 // import {AuthService, GoogleLoginProvider, SocialUser} from "angularx-social-login";
 @Component({
   selector: 'app-root',
@@ -11,7 +13,8 @@ export class AppComponent {
   isMobileResolution: boolean;
   isDesktopResolution: boolean;
   // user: SocialUser;
-  constructor() {
+  constructor(private loginService: LoginService,
+              private api: ApiService) {
     if (window.innerWidth < 900) {
       this.isMobileResolution = true;
       this.isDesktopResolution = false;
@@ -20,4 +23,16 @@ export class AppComponent {
       this.isDesktopResolution = true;
     }
   }
+
+  emailStatus(){
+    var promise = new Promise((resolve) => {
+      setTimeout(() => {
+        this.api.getEmailValue(){
+        }
+        resolve("done")
+      });
+    });
+    return promise;
+  }
+
 }
