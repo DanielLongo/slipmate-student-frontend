@@ -23,6 +23,7 @@ import {
 import { CreatePassComponent } from './create-pass/create-pass.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from "angularx-social-login";
+import {TeachMadePassesComponent} from './teach-made-passes/teach-made-passes.component';
 
 let config = new AuthServiceConfig([
   {
@@ -40,6 +41,7 @@ export function provideConfig() {
     AppComponent,
     PassesComponent,
     CreatePassComponent,
+    TeachMadePassesComponent,
   ],
   imports: [
     MatDatepickerModule,

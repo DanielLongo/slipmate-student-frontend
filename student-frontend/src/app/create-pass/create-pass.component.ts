@@ -32,6 +32,7 @@ export class CreatePassComponent implements OnInit {
   firstControl: FormControl;
   passInfo: FormGroup;
   validations_form: FormGroup;
+  private options: any;
   constructor(private _formBuilder: FormBuilder) {
     if (window.innerWidth < 900) {
       this.isMobileResolution = true;
