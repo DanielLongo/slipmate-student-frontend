@@ -142,7 +142,16 @@ export class ApiService {
     });
   }
 
-  getEmailValue(id: string) {
-    return this.request('')
+  getEmailValue(idD: string) {
+    return this.request('studentIsOpted', {
+      id: idD
+    })
+  }
+
+  optInOrOut(idD: string, current: string) {
+    return this.request('studentOptIn', {
+      id: idD,
+      currentStatus: current
+    })
   }
 }

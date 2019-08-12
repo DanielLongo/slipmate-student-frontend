@@ -8,9 +8,10 @@
 
 
 <div class="container" *ngIf="loginService.loggedIn">
+  <span *ngIf="!this.logged" >{{this.initLogin()}}</span>
   <mat-toolbar class="menubar">
     <div *ngIf="isDesktopResolution" style="margin-top: 10px">
-      <a href="https://www.slipmate.ml"><img class="menubar-image" src="https://slipmate.ml/assets/images/slipmate-gray.png"/></a>
+      <a href="https://www.slipmate.ml"><img class="menubar-image" src="https:///slipmate.ml/assets/images/slipmate-gray.png"/></a>
     </div>
     <div *ngIf="isMobileResolution" style="margin-top: 15px">
       <a href="https://www.slipmate.ml"><img class="menubar-image-mobile" src="https://slipmate.ml/assets/images/slipmate-gray.png"/></a>
@@ -25,7 +26,7 @@
     <mat-menu #usermenu style="border-radius: 10em; position: relative; float: right">
       <span class="name">{{this.loginService.user.name}}</span>
       <mat-divider></mat-divider>
-      <a mat-menu-item routerLink="settings">Settings</a>
+      <a mat-menu-item (click)="this.setOtherEmail()">{{this.isemailedtext}}</a>
       <a mat-menu-item (click)="this.loginService.signOut()">Log Out</a>
     </mat-menu>
   </mat-toolbar>
