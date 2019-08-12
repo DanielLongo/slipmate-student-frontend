@@ -35,21 +35,15 @@ export class ApiService {
     return suffixes[d];
   }
 
-  createPass(isTeacherPassCh: boolean, teacherToID: string, teacherFromID: string, studentIDd: string, month: string, day: string, reasonCh: string): any {
-    const tt = this.getTeacher(teacherToID);
-    const ft = this.getTeacher(teacherFromID);
-    let ttName = '';
-    let ftName = '';
-    if (!tt.hasOwnProperty('name')) { ttName = 'null'; }
-    if (!ft.hasOwnProperty('name')) { ftName = 'null'; }
+  createPass(teacherToID: string, teacherFromID: string, studentIDd: string, date: string, reasonCh: string, toTeacherName: string): any {
     return this.request('createPass', {
-      isTeacherPass: isTeacherPassCh,
+      isTeacherPass: false,
       toTeachID: teacherToID,
       fromTeachID: teacherFromID,
-      toTeachName: ttName,
-      fromTeachName: ftName,
+      toTeachName: toTeacherName,
+      fromTeachName: '?',
       studentID: studentIDd,
-      day: (month + ':' + day),
+      day: date,
       reason: reasonCh
     });
   }
@@ -99,8 +93,8 @@ export class ApiService {
   }
 
   getUnapprovedSlips(id: string): any {
-    return this.request('getUnapprovedSlips', {
-      teacherID: id
+    return this.request('getTeacherSlipsUnapprovedByStudent', {
+      studentId: id
     });
   }
 

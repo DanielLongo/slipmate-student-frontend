@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PASSES } from '../mock-teacher-made-passes';
 import {Pass} from '../pass';
+import {ApiService} from "../api.service";
+import {LoginService} from "../login.service";
 
 @Component({
   selector: 'app-teach-made-passes',
@@ -8,7 +10,7 @@ import {Pass} from '../pass';
   styleUrls: ['./teach-made-passes.component.scss']
 })
 export class TeachMadePassesComponent implements OnInit {
-  passes = PASSES
+  passes = []
   monthsOfYear = [
     'Jan',
     'Feb',
@@ -25,7 +27,8 @@ export class TeachMadePassesComponent implements OnInit {
   ]
   show: boolean;
 
-  constructor() { }
+  constructor(private api: ApiService,
+              private loginService: LoginService) { }
   getStringTimestamp(date: string): string {
     const splitted = date.split(':');
     return this.monthsOfYear[Number(splitted[0])] + '/' + splitted[1];
@@ -37,6 +40,9 @@ export class TeachMadePassesComponent implements OnInit {
     this.updateShow();
   }
   ngOnInit() {
+    this.api.getUnapprovedSlips(this.loginService.user.email.split('@')[0]).then(val => {
+      console.log(val)
+    })
     this.updateShow();
   }
   updateShow() {
