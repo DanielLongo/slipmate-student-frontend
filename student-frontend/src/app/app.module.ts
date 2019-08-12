@@ -14,12 +14,14 @@ import {
 } from '@angular/material';
 import { CreatePassComponent } from './create-pass/create-pass.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { TeachMadePassesComponent } from './teach-made-passes/teach-made-passes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PassesComponent,
     CreatePassComponent,
+    TeachMadePassesComponent,
   ],
   imports: [
     MatDatepickerModule,
