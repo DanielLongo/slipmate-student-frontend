@@ -1,24 +1,47 @@
-<mat-toolbar class="menubar">
-  <div *ngIf="isDesktopResolution" style="margin-top: 10px">
-    <a href="https://www.slipmate.ml"><img class="menubar-image" src="https://slipmate.ml/assets/images/slipmate-gray.png"/></a>
+<div *ngIf="!loginService.loggedIn" style="height: 100vh;">
+  <div style="display: flex; margin-top: 47vh">
+    <span class="spacer"></span>
+    <button mat-raised-button color="primary" (click)="this.loginService.signInWithGoogle()">Sign in</button>
+    <span class="spacer"></span>
   </div>
-  <div *ngIf="isMobileResolution" style="margin-top: 15px">
-    <a href="https://www.slipmate.ml"><img class="menubar-image-mobile" src="https://slipmate.ml/assets/images/slipmate-gray.png"/></a>
-  </div>
-  <h1 *ngIf="isDesktopResolution" class="menubar-text">{{ title }}</h1>
-</mat-toolbar>
-<br/>
-<br/>
-<br/>
-<app-passes></app-passes>
-<footer>
-  <hr>
-  <div style="text-align: center">
-<!--    <p>Created by Woodside High School Students 2019</p>-->
-    <p>For support please email <a href="mailto:support@slipmate.net">support@slipmate.net</a></p>
-    <p>Or Contact</p>
-    <p>Aidan Sacco, Daniel Longo, Guy Wilks</p>
-  </div>
-  <hr>
-</footer>
+</div>
 
+
+<div class="container" *ngIf="loginService.loggedIn">
+  <span *ngIf="!this.logged" >{{this.initLogin()}}</span>
+  <mat-toolbar class="menubar">
+    <div *ngIf="isDesktopResolution" style="margin-top: 10px">
+      <a href="https://www.slipmate.ml"><img class="menubar-image" src="https:///slipmate.ml/assets/images/slipmate-gray.png"/></a>
+    </div>
+    <div *ngIf="isMobileResolution" style="margin-top: 15px">
+      <a href="https://www.slipmate.ml"><img class="menubar-image-mobile" src="https://slipmate.ml/assets/images/slipmate-gray.png"/></a>
+    </div>
+    <h1 *ngIf="isDesktopResolution" class="menubar-text">{{ title }}</h1>
+    <button *ngIf="isDesktopResolution" mat-mini-fab [matMenuTriggerFor]="usermenu" style="overflow-y: hidden; overflow-x: hidden; position: absolute; float: right; left: 95%;">
+      <img src="{{this.loginService.user.photoUrl}}" width="100%" style="margin-top: -0.575em" alt="Profile">
+    </button>
+    <button *ngIf="isMobileResolution" mat-mini-fab [matMenuTriggerFor]="usermenu" style="overflow-y: hidden; overflow-x: hidden; position: absolute; float: right; left: 80%;">
+      <img src="{{this.loginService.user.photoUrl}}" width="100%" style="margin-top: -0.575em" alt="Profile">
+    </button>
+    <mat-menu #usermenu style="border-radius: 10em; position: relative; float: right">
+      <span class="name">{{this.loginService.user.name}}</span>
+      <mat-divider></mat-divider>
+      <a mat-menu-item (click)="this.setOtherEmail()">{{this.isemailedtext}}</a>
+      <a mat-menu-item (click)="this.loginService.signOut()">Log Out</a>
+    </mat-menu>
+  </mat-toolbar>
+  <br/>
+  <br/>
+  <br/>
+  <app-passes></app-passes>
+  <footer>
+    <hr>
+    <div style="text-align: center">
+  <!--    <p>Created by Woodside High School Students 2019</p>-->
+      <p>For support please email <a href="mailto:support@slipmate.net">support@slipmate.net</a></p>
+      <p>Or Contact</p>
+      <p>Aidan Sacco, Daniel Longo, Guy Wilks</p>
+    </div>
+    <hr>
+  </footer>
+</div>
