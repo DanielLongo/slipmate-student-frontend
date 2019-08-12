@@ -16,6 +16,8 @@ import {Pass} from '../pass';
 
 export class CreatePassComponent implements OnInit {
   newPass: Pass = new Pass();
+  myDate = new Date();
+  selectTeacherControl = new FormControl()
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
@@ -29,6 +31,7 @@ export class CreatePassComponent implements OnInit {
   filteredOptions: Observable<string[]>;
   firstControl: FormControl;
   passInfo: FormGroup;
+  validations_form: FormGroup;
   constructor(private _formBuilder: FormBuilder) {
     if (window.innerWidth < 900) {
       this.isMobileResolution = true;
@@ -45,13 +48,6 @@ export class CreatePassComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
-    this.passInfo = new FormGroup({
-      date : new FormControl('date', Validators.required),
-      teacherName : new FormControl('teacherName', Validators.required),
-      reason : new FormControl('cause', Validators.required)
-    });
-
-    this.firstControl = new FormControl()
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -60,10 +56,24 @@ export class CreatePassComponent implements OnInit {
     });
     this.thirdFormGroup = this._formBuilder.group({
       thirdCtrl: ['', Validators.required]
-      // ttCtrl: ['', Validators.required],
-      // checkOne: [false, Validators.required],
-      // thirdCtrl: ['', Validators.required]
     });
+
+    // this.passInfo = new FormGroup({
+    //   date : new FormControl('date', Validators.required),
+    //   teacherName : new FormControl('teacherName', Validators.required),
+    //   reason : new FormControl('cause', Validators.required)
+    // });
+    //
+    // this.validations_form = this._formBuilder.group({
+    //   date: new FormControl('', Validators.required),
+    //   teacherName : new FormControl('', Validators.required),
+    //   reason : new FormControl('', Validators.required)
+    //   }
+    // );
+
+
+
+    // this.firstControl = new FormControl();
   }
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
@@ -82,10 +92,8 @@ export class CreatePassComponent implements OnInit {
 }
 
   createPass() {
-    console.log('A');
     console.log(this.firstFormGroup.value);
-    console.log(this.secondFormGroup.value);
+    console.log(this.secondFormGroup.value.split('/')[0]); // trying to get month
     console.log(this.thirdFormGroup.value);
-    console.log('B');
   }
 }
