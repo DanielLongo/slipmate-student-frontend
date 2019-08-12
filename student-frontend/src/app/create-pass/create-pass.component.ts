@@ -28,6 +28,7 @@ export class CreatePassComponent implements OnInit {
   myTeachers: string[] = ['Fernander', 'Etlin', 'Eaton', 'Hanson'];
   filteredOptions: Observable<string[]>;
   firstControl: FormControl;
+  passInfo: FormGroup;
   constructor(private _formBuilder: FormBuilder) {
     if (window.innerWidth < 900) {
       this.isMobileResolution = true;
@@ -44,6 +45,12 @@ export class CreatePassComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
+    this.passInfo = new FormGroup({
+      date : new FormControl('date', Validators.required),
+      teacherName : new FormControl('teacherName', Validators.required),
+      reason : new FormControl('cause', Validators.required)
+    });
+
     this.firstControl = new FormControl()
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
