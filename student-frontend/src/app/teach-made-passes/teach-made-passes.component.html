@@ -2,11 +2,11 @@
   <h3>Passes Created By Teachers</h3>
   <ul style="padding: 0" *ngFor="let pass of passes">
     <mat-card class="alternate-theme">
-      <mat-card-title>Tutorial with {{pass.teacherName}} </mat-card-title>
+      <mat-card-title>Tutorial with {{pass.toTeachName}} </mat-card-title>
       <mat-card-content>
-        <p> {{getStringTimestamp(pass.date)}} Purpose: {{pass.purpose}}</p>
-        <button style="margin-right: 10px" color="primary" mat-flat-button>Accept</button>
-        <button class="cancel-pass" color="warn" mat-stroked-button (click)="deletePass(pass)">Decline</button>
+        <p> {{getStringTimestamp(pass.day)}} Purpose: {{pass.reason}}</p>
+        <button style="margin-right: 10px" color="primary" mat-flat-button (click)="acceptPass(pass.id, pass.fromTeacherID)">Accept</button>
+        <button class="cancel-pass" color="warn" mat-stroked-button (click)="deletePass(pass.id)">Decline</button>
       </mat-card-content>
     </mat-card>
 </ul>
