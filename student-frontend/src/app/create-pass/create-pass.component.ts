@@ -5,8 +5,10 @@ import {map, startWith} from 'rxjs/operators';
 import {Pass} from '../pass';
 import {LoginService} from "../login.service";
 import {ApiService} from "../api.service";
+import {PassesComponent} from '../passes/passes.component';
 
 @Component({
+  providers: [PassesComponent],
   selector: 'app-create-pass',
   templateUrl: './create-pass.component.html',
   styleUrls: ['./create-pass.component.scss']
@@ -38,7 +40,8 @@ export class CreatePassComponent implements OnInit {
   private options: any;
   constructor(private _formBuilder: FormBuilder,
               private loginService: LoginService,
-              private api: ApiService) {
+              private api: ApiService,
+              private comp: PassesComponent) {
     if (window.innerWidth < 900) {
       this.isMobileResolution = true;
       this.isDesktopResolution = false;
@@ -151,6 +154,11 @@ export class CreatePassComponent implements OnInit {
     console.log(teacherName)
     console.log(date)
     console.log(cause)
+    this.refreshPasses();
+  }
+
+  refreshPasses(): void {
+    this.comp.refreshPasses();
   }
 
   pad(num: number, size: number): string {

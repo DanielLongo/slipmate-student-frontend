@@ -37,15 +37,7 @@ export class PassesComponent implements OnInit {
   deletePass(passId: string): void {
     if (confirm('Are you sure want to delete this pass?')) {
       this.api.deleteSlip(passId).then(
-        this.api.getAllPasses(this.loginservice.user.email.split('@')[0]).then(
-          val => {
-            try {
-              this.passes = JSON.parse(val);
-            } catch (e) {
-              console.log("no passes available");
-            }
-          }
-        )
+        this.refreshPasses()
       )
     }
   }
@@ -82,6 +74,19 @@ export class PassesComponent implements OnInit {
       return 0;
     }
     return 1;
+  }
+
+  refreshPasses(): void {
+    this.api.getAllPasses(this.loginservice.user.email.split('@')[0]).then(
+      val => {
+        try {
+          this.passes = JSON.parse(val);
+        } catch (e) {
+          console.log("no passes available");
+        }
+      }
+    )
+    location.reload();
   }
 
     getStringTimestamp(date: string): string {
