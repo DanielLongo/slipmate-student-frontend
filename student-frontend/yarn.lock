@@ -9,15 +9,22 @@
     "@angular-devkit/core" "8.0.3"
     rxjs "6.4.0"
 
-"@angular-devkit/build-angular@~0.800.0":
-  version "0.800.3"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.800.3.tgz#31b8d7a5063dd7cfbd6a0a288e8c16022b6e9306"
+"@angular-devkit/architect@0.800.6":
+  version "0.800.6"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.800.6.tgz#24d65f1e079f294312fe76dc11eaabf5e5d43eff"
   dependencies:
-    "@angular-devkit/architect" "0.800.3"
-    "@angular-devkit/build-optimizer" "0.800.3"
-    "@angular-devkit/build-webpack" "0.800.3"
-    "@angular-devkit/core" "8.0.3"
-    "@ngtools/webpack" "8.0.3"
+    "@angular-devkit/core" "8.0.6"
+    rxjs "6.4.0"
+
+"@angular-devkit/build-angular@^0.800.6":
+  version "0.800.6"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.800.6.tgz#96515da8cb83f28b3afae8b3fd73392f2b54925d"
+  dependencies:
+    "@angular-devkit/architect" "0.800.6"
+    "@angular-devkit/build-optimizer" "0.800.6"
+    "@angular-devkit/build-webpack" "0.800.6"
+    "@angular-devkit/core" "8.0.6"
+    "@ngtools/webpack" "8.0.6"
     ajv "6.10.0"
     autoprefixer "9.5.1"
     browserslist "4.5.5"
@@ -63,27 +70,37 @@
     webpack-subresource-integrity "1.1.0-rc.6"
     worker-plugin "3.1.0"
 
-"@angular-devkit/build-optimizer@0.800.3":
-  version "0.800.3"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-optimizer/-/build-optimizer-0.800.3.tgz#c7d17d35e501ab8f5bb31005d2c51928d8664555"
+"@angular-devkit/build-optimizer@0.800.6":
+  version "0.800.6"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-optimizer/-/build-optimizer-0.800.6.tgz#2a801d0bb03296cd34e866d783a86b0e6ac0250b"
   dependencies:
     loader-utils "1.2.3"
     source-map "0.5.6"
     typescript "3.4.4"
     webpack-sources "1.3.0"
 
-"@angular-devkit/build-webpack@0.800.3":
-  version "0.800.3"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-webpack/-/build-webpack-0.800.3.tgz#b59344c82fc9e5bd3ca93618b80ad5cccf9b8fbe"
+"@angular-devkit/build-webpack@0.800.6":
+  version "0.800.6"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-webpack/-/build-webpack-0.800.6.tgz#74a22b4928b73e3106408977a813ad76a6354c9b"
   dependencies:
-    "@angular-devkit/architect" "0.800.3"
-    "@angular-devkit/core" "8.0.3"
+    "@angular-devkit/architect" "0.800.6"
+    "@angular-devkit/core" "8.0.6"
     rxjs "6.4.0"
     webpack-merge "4.2.1"
 
 "@angular-devkit/core@8.0.3":
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.0.3.tgz#f2a946030abee42865bc0250c5796befed1ec16b"
+  dependencies:
+    ajv "6.10.0"
+    fast-json-stable-stringify "2.0.0"
+    magic-string "0.25.2"
+    rxjs "6.4.0"
+    source-map "0.7.3"
+
+"@angular-devkit/core@8.0.6":
+  version "8.0.6"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.0.6.tgz#540ff673f1808fc09538c8aa6c01f08750921301"
   dependencies:
     ajv "6.10.0"
     fast-json-stable-stringify "2.0.0"
@@ -104,9 +121,9 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cdk@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-8.0.1.tgz#106872aa7fac0c55144ed5dd60df9af7e24b436a"
+"@angular/cdk@^8.1.2":
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-8.2.3.tgz#16b96ffa935cbf5a646757ecaf2b19c434678f72"
   dependencies:
     tslib "^1.7.1"
   optionalDependencies:
@@ -178,9 +195,9 @@
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-8.0.1.tgz#72aefb3d86f98e3d7e90ba970b65fabba3aac9b6"
 
-"@angular/material@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-8.0.1.tgz#cbb3f7776d2405a1d75b6e7eb6675fd80a8a5cf5"
+"@angular/material@^8.1.2":
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-8.2.3.tgz#16543e4e06a3fde2651a25cfe126e88e714ae105"
   dependencies:
     tslib "^1.7.1"
 
@@ -280,11 +297,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@ngtools/webpack@8.0.3":
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-8.0.3.tgz#a54cfae0c0d3e64582a148368c475cbbc1ef2137"
+"@ngtools/webpack@8.0.6":
+  version "8.0.6"
+  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-8.0.6.tgz#c6b5416710913b24b741a17c8f255e54f42c9abf"
   dependencies:
-    "@angular-devkit/core" "8.0.3"
+    "@angular-devkit/core" "8.0.6"
     enhanced-resolve "4.1.0"
     rxjs "6.4.0"
     tree-kill "1.2.1"
@@ -586,6 +603,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angularx-social-login@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/angularx-social-login/-/angularx-social-login-1.2.7.tgz#5ca129cf3edbc66840c9e53b864584ff39902195"
+
 ansi-colors@^3.0.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
@@ -867,8 +888,8 @@ backo2@1.0.2:
   resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
 
 balanced-match@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
 
 base64-arraybuffer@0.1.5:
   version "0.1.5"
@@ -2308,6 +2329,10 @@ fsevents@^1.2.7:
     nan "^2.12.1"
     node-pre-gyp "^0.12.0"
 
+function-bind@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
+
 gauge@~2.7.3:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
@@ -2379,8 +2404,8 @@ glob@7.1.3:
     path-is-absolute "^1.0.0"
 
 glob@^7.0.0, glob@^7.0.3, glob@^7.0.6, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3:
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.4.tgz#aa608a2f6c577ad357e1ae5a5c26d9a8d1969255"
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.0.tgz#d15535af7732e02e948f4c41628bd910293f6023"
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -2508,6 +2533,12 @@ has-values@^1.0.0:
   dependencies:
     is-number "^3.0.0"
     kind-of "^4.0.0"
+
+has@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/has/-/has-1.0.3.tgz#722d7cbfc1f6aa8241f16dd814e011e1f41e8796"
+  dependencies:
+    function-bind "^1.1.1"
 
 hash-base@^3.0.0:
   version "3.0.4"
@@ -2701,13 +2732,17 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
+inherits@2:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
 
 inherits@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
+
+inherits@2.0.3, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
 ini@1.3.5, ini@^1.3.4, ini@~1.3.0:
   version "1.3.5"
@@ -2739,8 +2774,8 @@ internal-ip@^4.2.0:
     ipaddr.js "^1.9.0"
 
 interpret@^1.0.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
 
 invariant@^2.2.2:
   version "2.2.4"
@@ -2789,6 +2824,12 @@ is-binary-path@^1.0.0:
 is-buffer@^1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+
+is-core-module@^2.8.0:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.8.1.tgz#f59fdfca701d5879d0a6b100a40aa1560ce27211"
+  dependencies:
+    has "^1.0.3"
 
 is-data-descriptor@^0.1.4:
   version "0.1.4"
@@ -4085,6 +4126,10 @@ path-parse@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
 
+path-parse@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+
 path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
@@ -4575,7 +4620,15 @@ resolve-url@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
 
-resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.3.2:
+resolve@^1.1.6:
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.21.0.tgz#b51adc97f3472e6a5cf4444d34bc9d6b9037591f"
+  dependencies:
+    is-core-module "^2.8.0"
+    path-parse "^1.0.7"
+    supports-preserve-symlinks-flag "^1.0.0"
+
+resolve@^1.1.7, resolve@^1.10.0, resolve@^1.3.2:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.11.0.tgz#4014870ba296176b86343d50b60f3b50609ce232"
   dependencies:
@@ -4846,8 +4899,8 @@ shebang-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
 
 shelljs@^0.8.1:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.3.tgz#a7f3319520ebf09ee81275b2368adb286659b097"
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.5.tgz#de055408d8361bed66c669d2f000538ced8ee20c"
   dependencies:
     glob "^7.0.0"
     interpret "^1.0.0"
@@ -5294,6 +5347,10 @@ supports-color@^6.1.0:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-6.1.0.tgz#0764abc69c63d5ac842dd4867e8d025e880df8f3"
   dependencies:
     has-flag "^3.0.0"
+
+supports-preserve-symlinks-flag@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
 
 symbol-observable@1.2.0:
   version "1.2.0"
